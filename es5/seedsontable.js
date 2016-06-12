@@ -47,7 +47,7 @@ var Seedsontable = exports.Seedsontable = function (_Handsontable$Core) {
       data: seedData.data,
       cell: [0, 1, 2].map(function (row) {
         return seedData.columns.map(function (_, col) {
-          return { row: row, col: col, type: 'text', readOnly: true, placeholder: false };
+          return { row: row, col: col, type: 'text', readOnly: true, placeholder: false, allowInsertRow: false, allowRemoveRow: false };
         });
       }).reduce(function (all, part) {
         return all.concat(part);

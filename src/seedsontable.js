@@ -8,7 +8,7 @@ export class Seedsontable extends Handsontable.Core {
         data: seedData.data,
         cell: [0, 1, 2].map((row) =>
           seedData.columns.map((_, col) =>
-            ({row, col, type: 'text', readOnly: true, placeholder: false})
+            ({row, col, type: 'text', readOnly: true, placeholder: false, allowInsertRow: false, allowRemoveRow: false})
           )
         ).reduce((all, part) => all.concat(part), []).concat(seedData.allComments),
         afterSetCellMeta: (row, col, key, value) => {
