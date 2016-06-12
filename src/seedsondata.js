@@ -5,7 +5,7 @@ export class SeedsonData {
   /* columns
    * {data, dataLabel, version, versionColumn, developmentFlagColumn, noSeed}
    */
-  constructor(columns, sourceData, comments = {}) {
+  constructor(columns, sourceData = [], comments = {}) {
     this._columns = columns;
     this._columnNames = SeedsonData.namesFromColumns(columns);
     this._columnLabels = this.columns.map((column) => column.dataLabel);
@@ -20,12 +20,12 @@ export class SeedsonData {
     this._comments = comments;
   }
 
-  static fromHash(columns, sourceData) {
-    return new SeedsonData(columns, SeedsonData.hashToNative(sourceData));
+  static fromHash(columns, sourceData, comments) {
+    return new SeedsonData(columns, SeedsonData.hashToNative(sourceData), comments);
   }
 
-  static fromArray(columns, sourceData) {
-    return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData));
+  static fromArray(columns, sourceData, comments) {
+    return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData), comments);
   }
 
   static hashToNative(data) {
