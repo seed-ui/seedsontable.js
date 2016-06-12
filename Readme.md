@@ -33,14 +33,14 @@ bower install seedsontable
 node.js:
 ```javascript
 var seedsontable = require('seedsontable');
-var SeedsonTable = seedsontable.SeedsonTable;
+var Seedsontable = seedsontable.Seedsontable;
 var SeedsonData = seedsontable.SeedsonData;
 ```
 
 browser:
 ```html
 <script src="seedsontable.js"></script>
-var SeedsonTable = seedsontable.SeedsonTable;
+var Seedsontable = seedsontable.Seedsontable;
 var SeedsonData = seedsontable.SeedsonData;
 ```
 

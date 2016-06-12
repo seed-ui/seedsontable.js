@@ -1,4 +1,4 @@
-import {SeedsonTable} from './seedsontable';
+import {Seedsontable} from './seedsontable';
 import {SeedsonData} from './seedsondata';
-import {SynchroTable} from './synchrotable';
-export {SeedsonTable, SeedsonData, SynchroTable};
+import {Synchrotable} from './synchrotable';
+export {Seedsontable, SeedsonData, Synchrotable};

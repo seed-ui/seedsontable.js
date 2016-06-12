@@ -42,9 +42,10 @@ var SeedsonData = exports.SeedsonData = function () {
    * {data, dataLabel, version, versionColumn, developmentFlagColumn, noSeed}
    */
 
-  function SeedsonData(columns, sourceData) {
+  function SeedsonData(columns) {
     var _this = this;
 
+    var sourceData = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
     var comments = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
     (0, _classCallCheck3.default)(this, SeedsonData);
 
@@ -226,13 +227,13 @@ var SeedsonData = exports.SeedsonData = function () {
     }
   }], [{
     key: 'fromHash',
-    value: function fromHash(columns, sourceData) {
-      return new SeedsonData(columns, SeedsonData.hashToNative(sourceData));
+    value: function fromHash(columns, sourceData, comments) {
+      return new SeedsonData(columns, SeedsonData.hashToNative(sourceData), comments);
     }
   }, {
     key: 'fromArray',
-    value: function fromArray(columns, sourceData) {
-      return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData));
+    value: function fromArray(columns, sourceData, comments) {
+      return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData), comments);
     }
   }, {
     key: 'hashToNative',

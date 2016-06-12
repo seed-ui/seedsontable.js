@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.SynchroTable = exports.SeedsonData = exports.SeedsonTable = undefined;
+exports.Synchrotable = exports.SeedsonData = exports.Seedsontable = undefined;
 
 var _seedsontable = require('./seedsontable');
 
@@ -11,7 +11,7 @@ var _seedsondata = require('./seedsondata');
 
 var _synchrotable = require('./synchrotable');
 
-exports.SeedsonTable = _seedsontable.SeedsonTable;
+exports.Seedsontable = _seedsontable.Seedsontable;
 exports.SeedsonData = _seedsondata.SeedsonData;
-exports.SynchroTable = _synchrotable.SynchroTable;
+exports.Synchrotable = _synchrotable.Synchrotable;
 //# sourceMappingURL=index.js.map

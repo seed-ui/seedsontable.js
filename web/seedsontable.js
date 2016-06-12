@@ -73,7 +73,7 @@ var seedsontable =
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.SynchroTable = exports.SeedsonData = exports.SeedsonTable = undefined;
+	exports.Synchrotable = exports.SeedsonData = exports.Seedsontable = undefined;
 	
 	var _seedsontable = __webpack_require__(1);
 	
@@ -81,9 +81,9 @@ var seedsontable =
 	
 	var _synchrotable = __webpack_require__(141);
 	
-	exports.SeedsonTable = _seedsontable.SeedsonTable;
+	exports.Seedsontable = _seedsontable.Seedsontable;
 	exports.SeedsonData = _seedsondata.SeedsonData;
-	exports.SynchroTable = _synchrotable.SynchroTable;
+	exports.Synchrotable = _synchrotable.Synchrotable;
 
 /***/ },
 /* 1 */
@@ -1688,9 +1688,10 @@ var seedsontable =
 	   * {data, dataLabel, version, versionColumn, developmentFlagColumn, noSeed}
 	   */
 	
-	  function SeedsonData(columns, sourceData) {
+	  function SeedsonData(columns) {
 	    var _this = this;
 	
+	    var sourceData = arguments.length <= 1 || arguments[1] === undefined ? [] : arguments[1];
 	    var comments = arguments.length <= 2 || arguments[2] === undefined ? {} : arguments[2];
 	    (0, _classCallCheck3.default)(this, SeedsonData);
 	
@@ -1872,13 +1873,13 @@ var seedsontable =
 	    }
 	  }], [{
 	    key: 'fromHash',
-	    value: function fromHash(columns, sourceData) {
-	      return new SeedsonData(columns, SeedsonData.hashToNative(sourceData));
+	    value: function fromHash(columns, sourceData, comments) {
+	      return new SeedsonData(columns, SeedsonData.hashToNative(sourceData), comments);
 	    }
 	  }, {
 	    key: 'fromArray',
-	    value: function fromArray(columns, sourceData) {
-	      return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData));
+	    value: function fromArray(columns, sourceData, comments) {
+	      return new SeedsonData(columns, SeedsonData.arrayToNative(columns, sourceData), comments);
 	    }
 	  }, {
 	    key: 'hashToNative',
