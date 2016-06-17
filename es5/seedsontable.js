@@ -53,7 +53,7 @@ var Seedsontable = exports.Seedsontable = function (_Handsontable$Core) {
         return all.concat(part);
       }, []).concat(seedData.allComments),
       afterSetCellMeta: function afterSetCellMeta(row, col, key, value) {
-        if (key === 'comment') _this.seedData.saveCommentAtRowProp(row, _this.seedData.column_names[col], value);
+        if (key === 'comment') _this.seedData.saveCommentAtRowProp(row, _this.seedData.columnNames[col], value);
       }
     }, Seedsontable.defaultUserSettings, userSettings);
 
@@ -64,7 +64,7 @@ var Seedsontable = exports.Seedsontable = function (_Handsontable$Core) {
     _this._patch();
     // for remove comment
     _this.addHook('afterRemoveCellMeta', function (row, col, key, value) {
-      if (key === 'comment') _this.seedData.removeCommentAtRowProp(row, _this.seedData.column_names[col]);
+      if (key === 'comment') _this.seedData.removeCommentAtRowProp(row, _this.seedData.columnNames[col]);
     });
     return _this;
   }
