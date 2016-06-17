@@ -198,7 +198,8 @@ var seedsontable =
 	  fillHandle: 'vertical',
 	  outsideClickDeselects: false,
 	  trimWhitespace: true,
-	  comments: true
+	  comments: true,
+	  search: true
 	};
 
 /***/ },

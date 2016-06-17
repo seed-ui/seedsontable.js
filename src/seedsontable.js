@@ -70,4 +70,5 @@ Seedsontable.defaultUserSettings = {
   outsideClickDeselects: false,
   trimWhitespace: true,
   comments: true,
+  search: true,
 };

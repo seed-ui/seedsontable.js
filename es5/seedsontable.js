@@ -107,6 +107,7 @@ Seedsontable.defaultUserSettings = {
   fillHandle: 'vertical',
   outsideClickDeselects: false,
   trimWhitespace: true,
-  comments: true
+  comments: true,
+  search: true
 };
 //# sourceMappingURL=seedsontable.js.map
