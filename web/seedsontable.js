@@ -231,7 +231,7 @@ var seedsontable =
 
 /***/ },
 /* 5 */
-[195, 6],
+[194, 6],
 /* 6 */
 /***/ function(module, exports) {
 
@@ -280,7 +280,7 @@ var seedsontable =
 
 /***/ },
 /* 10 */
-[196, 11],
+[195, 11],
 /* 11 */
 /***/ function(module, exports) {
 
@@ -389,7 +389,7 @@ var seedsontable =
 
 /***/ },
 /* 16 */
-[197, 17],
+[196, 17],
 /* 17 */
 /***/ function(module, exports) {
 
@@ -400,11 +400,11 @@ var seedsontable =
 
 /***/ },
 /* 18 */
-[198, 19, 27, 23],
+[197, 19, 27, 23],
 /* 19 */
-[199, 20, 22, 26, 23],
+[198, 20, 22, 26, 23],
 /* 20 */
-[200, 21],
+[199, 21],
 /* 21 */
 /***/ function(module, exports) {
 
@@ -414,9 +414,9 @@ var seedsontable =
 
 /***/ },
 /* 22 */
-[201, 23, 24, 25],
+[200, 23, 24, 25],
 /* 23 */
-[202, 24],
+[201, 24],
 /* 24 */
 /***/ function(module, exports) {
 
@@ -430,9 +430,9 @@ var seedsontable =
 
 /***/ },
 /* 25 */
-[203, 21, 11],
+[202, 21, 11],
 /* 26 */
-[204, 21],
+[203, 21],
 /* 27 */
 /***/ function(module, exports) {
 
@@ -552,7 +552,7 @@ var seedsontable =
 
 /***/ },
 /* 35 */
-[205, 36],
+[204, 36],
 /* 36 */
 /***/ function(module, exports) {
 
@@ -590,7 +590,7 @@ var seedsontable =
 
 /***/ },
 /* 38 */
-[206, 39],
+[205, 39],
 /* 39 */
 /***/ function(module, exports) {
 
@@ -1004,7 +1004,7 @@ var seedsontable =
 
 /***/ },
 /* 64 */
-[207, 10, 12, 11],
+[206, 10, 12, 11],
 /* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -1446,7 +1446,7 @@ var seedsontable =
 
 /***/ },
 /* 77 */
-[208, 36],
+[207, 36],
 /* 78 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -2966,7 +2966,7 @@ var seedsontable =
 	    else if (isX(m))
 	      ret = '>=' + M + '.0.0 <' + (+M + 1) + '.0.0';
 	    else if (isX(p))
-	      // ~1.2 == >=1.2.0- <1.3.0-
+	      // ~1.2 == >=1.2.0 <1.3.0
 	      ret = '>=' + M + '.' + m + '.0 <' + M + '.' + (+m + 1) + '.0';
 	    else if (pr) {
 	      debug('replaceTilde pr', pr);
@@ -3317,6 +3317,12 @@ var seedsontable =
 	  return true;
 	}
 	
+	exports.prerelease = prerelease;
+	function prerelease(version, loose) {
+	  var parsed = parse(version, loose);
+	  return (parsed && parsed.prerelease.length) ? parsed.prerelease : null;
+	}
+	
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(107)))
 
 /***/ },
@@ -3327,10 +3333,30 @@ var seedsontable =
 	
 	var process = module.exports = {};
 	
-	// cached from whatever global is present so that test runners that stub it don't break things.
-	var cachedSetTimeout = setTimeout;
-	var cachedClearTimeout = clearTimeout;
+	// cached from whatever global is present so that test runners that stub it
+	// don't break things.  But we need to wrap it in a try catch in case it is
+	// wrapped in strict mode code which doesn't define any globals.  It's inside a
+	// function because try/catches deoptimize in certain engines.
 	
+	var cachedSetTimeout;
+	var cachedClearTimeout;
+	
+	(function () {
+	  try {
+	    cachedSetTimeout = setTimeout;
+	  } catch (e) {
+	    cachedSetTimeout = function () {
+	      throw new Error('setTimeout is not defined');
+	    }
+	  }
+	  try {
+	    cachedClearTimeout = clearTimeout;
+	  } catch (e) {
+	    cachedClearTimeout = function () {
+	      throw new Error('clearTimeout is not defined');
+	    }
+	  }
+	} ())
 	var queue = [];
 	var draining = false;
 	var currentQueue;
@@ -3504,23 +3530,23 @@ var seedsontable =
 /* 112 */
 15,
 /* 113 */
-[198, 114, 122, 118],
+[197, 114, 122, 118],
 /* 114 */
-[199, 115, 117, 121, 118],
+[198, 115, 117, 121, 118],
 /* 115 */
-[200, 116],
+[199, 116],
 /* 116 */
 21,
 /* 117 */
-[201, 118, 119, 120],
+[200, 118, 119, 120],
 /* 118 */
-[202, 119],
+[201, 119],
 /* 119 */
 24,
 /* 120 */
-[203, 116, 111],
+[202, 116, 111],
 /* 121 */
-[204, 116],
+[203, 116],
 /* 122 */
 27,
 /* 123 */
@@ -3565,7 +3591,7 @@ var seedsontable =
 /* 125 */
 12,
 /* 126 */
-[197, 127],
+[196, 127],
 /* 127 */
 17,
 /* 128 */
@@ -3618,15 +3644,15 @@ var seedsontable =
 
 /***/ },
 /* 129 */
-[205, 130],
+[204, 130],
 /* 130 */
 36,
 /* 131 */
-[195, 132],
+[194, 132],
 /* 132 */
 6,
 /* 133 */
-[206, 134],
+[205, 134],
 /* 134 */
 39,
 /* 135 */
@@ -3662,11 +3688,11 @@ var seedsontable =
 
 /***/ },
 /* 137 */
-[208, 130],
+[207, 130],
 /* 138 */
-[207, 139, 125, 111],
+[206, 139, 125, 111],
 /* 139 */
-[196, 111],
+[195, 111],
 /* 140 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -6303,7 +6329,7 @@ var seedsontable =
 	var bind = __webpack_require__(191);
 	var debug = __webpack_require__(149)('socket.io-client:manager');
 	var indexOf = __webpack_require__(185);
-	var Backoff = __webpack_require__(194);
+	var Backoff = __webpack_require__(193);
 	
 	/**
 	 * IE6+ hasOwnProperty
@@ -6882,7 +6908,7 @@ var seedsontable =
 	 */
 	
 	var transports = __webpack_require__(164);
-	var Emitter = __webpack_require__(157);
+	var Emitter = __webpack_require__(178);
 	var debug = __webpack_require__(149)('engine.io-client:socket');
 	var index = __webpack_require__(185);
 	var parser = __webpack_require__(170);
@@ -7743,7 +7769,7 @@ var seedsontable =
 	
 	var XMLHttpRequest = __webpack_require__(165);
 	var Polling = __webpack_require__(168);
-	var Emitter = __webpack_require__(157);
+	var Emitter = __webpack_require__(178);
 	var inherit = __webpack_require__(180);
 	var debug = __webpack_require__(149)('engine.io-client:polling-xhr');
 	
@@ -8414,7 +8440,7 @@ var seedsontable =
 	 */
 	
 	var parser = __webpack_require__(170);
-	var Emitter = __webpack_require__(157);
+	var Emitter = __webpack_require__(178);
 	
 	/**
 	 * Module exports.
@@ -8576,10 +8602,10 @@ var seedsontable =
 	
 	var keys = __webpack_require__(171);
 	var hasBinary = __webpack_require__(172);
-	var sliceBuffer = __webpack_require__(174);
-	var base64encoder = __webpack_require__(175);
-	var after = __webpack_require__(176);
-	var utf8 = __webpack_require__(177);
+	var sliceBuffer = __webpack_require__(173);
+	var base64encoder = __webpack_require__(174);
+	var after = __webpack_require__(175);
+	var utf8 = __webpack_require__(176);
 	
 	/**
 	 * Check if we are running an android browser. That requires us to use
@@ -8636,7 +8662,7 @@ var seedsontable =
 	 * Create a blob api even for blob builder when vendor prefixes exist
 	 */
 	
-	var Blob = __webpack_require__(178);
+	var Blob = __webpack_require__(177);
 	
 	/**
 	 * Encodes a packet.
@@ -9201,7 +9227,7 @@ var seedsontable =
 	 * Module requirements.
 	 */
 	
-	var isArray = __webpack_require__(173);
+	var isArray = __webpack_require__(156);
 	
 	/**
 	 * Module exports.
@@ -9259,8 +9285,6 @@ var seedsontable =
 
 /***/ },
 /* 173 */
-156,
-/* 174 */
 /***/ function(module, exports) {
 
 	/**
@@ -9295,7 +9319,7 @@ var seedsontable =
 
 
 /***/ },
-/* 175 */
+/* 174 */
 /***/ function(module, exports) {
 
 	/*
@@ -9360,7 +9384,7 @@ var seedsontable =
 
 
 /***/ },
-/* 176 */
+/* 175 */
 /***/ function(module, exports) {
 
 	module.exports = after
@@ -9394,7 +9418,7 @@ var seedsontable =
 
 
 /***/ },
-/* 177 */
+/* 176 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/*! https://mths.be/utf8js v2.0.0 by @mathias */
@@ -9643,7 +9667,7 @@ var seedsontable =
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(154)(module), (function() { return this; }())))
 
 /***/ },
-/* 178 */
+/* 177 */
 /***/ function(module, exports) {
 
 	/* WEBPACK VAR INJECTION */(function(global) {/**
@@ -9746,6 +9770,8 @@ var seedsontable =
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }())))
 
 /***/ },
+/* 178 */
+157,
 /* 179 */
 /***/ function(module, exports) {
 
@@ -11145,7 +11171,7 @@ var seedsontable =
 	 * Module requirements.
 	 */
 	
-	var isArray = __webpack_require__(193);
+	var isArray = __webpack_require__(156);
 	
 	/**
 	 * Module exports.
@@ -11204,8 +11230,6 @@ var seedsontable =
 
 /***/ },
 /* 193 */
-156,
-/* 194 */
 /***/ function(module, exports) {
 
 	
@@ -11296,7 +11320,7 @@ var seedsontable =
 
 
 /***/ },
-/* 195 */
+/* 194 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// 7.1.13 ToObject(argument)
@@ -11306,7 +11330,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 196 */
+/* 195 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	var global = __webpack_require__(__webpack_module_template_argument_0__)
@@ -11317,7 +11341,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 197 */
+/* 196 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// optional / simple context binding
@@ -11342,7 +11366,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 198 */
+/* 197 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__, __webpack_module_template_argument_2__) {
 
 	var dP         = __webpack_require__(__webpack_module_template_argument_0__)
@@ -11355,7 +11379,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 199 */
+/* 198 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__, __webpack_module_template_argument_2__, __webpack_module_template_argument_3__) {
 
 	var anObject       = __webpack_require__(__webpack_module_template_argument_0__)
@@ -11376,7 +11400,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 200 */
+/* 199 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	var isObject = __webpack_require__(__webpack_module_template_argument_0__);
@@ -11386,7 +11410,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 201 */
+/* 200 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__, __webpack_module_template_argument_2__) {
 
 	module.exports = !__webpack_require__(__webpack_module_template_argument_0__) && !__webpack_require__(__webpack_module_template_argument_1__)(function(){
@@ -11394,7 +11418,7 @@ var seedsontable =
 	});
 
 /***/ },
-/* 202 */
+/* 201 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// Thank's IE8 for his funny defineProperty
@@ -11403,7 +11427,7 @@ var seedsontable =
 	});
 
 /***/ },
-/* 203 */
+/* 202 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__) {
 
 	var isObject = __webpack_require__(__webpack_module_template_argument_0__)
@@ -11415,7 +11439,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 204 */
+/* 203 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// 7.1.1 ToPrimitive(input [, PreferredType])
@@ -11432,7 +11456,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 205 */
+/* 204 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -11442,7 +11466,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 206 */
+/* 205 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// 7.1.15 ToLength
@@ -11453,7 +11477,7 @@ var seedsontable =
 	};
 
 /***/ },
-/* 207 */
+/* 206 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__, __webpack_module_template_argument_1__, __webpack_module_template_argument_2__) {
 
 	var store      = __webpack_require__(__webpack_module_template_argument_0__)('wks')
@@ -11469,7 +11493,7 @@ var seedsontable =
 	$exports.store = store;
 
 /***/ },
-/* 208 */
+/* 207 */
 /***/ function(module, exports, __webpack_require__, __webpack_module_template_argument_0__) {
 
 	// 7.2.2 IsArray(argument)
