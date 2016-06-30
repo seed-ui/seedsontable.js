@@ -8,7 +8,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "handsontable": "^0.25.1",
+    "handsontable": "^0.26.0",
     "socket.io-client": "^1.4.6"
   },
   "devDependencies": {
@@ -35,7 +35,6 @@
     "gulp-plumber": "^1.1.0",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-watch": "^4.3.6",
-    "handsontable": "^0.25.1",
     "isparta": "^4.0.0",
     "istanbul-instrumenter-loader": "^0.2.0",
     "json-loader": "^0.5.4",
