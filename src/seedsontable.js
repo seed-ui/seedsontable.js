@@ -12,7 +12,7 @@ export class Seedsontable extends Handsontable.Core {
           )
         ).reduce((all, part) => all.concat(part), []).concat(seedData.allComments),
         afterSetCellMeta: (row, col, key, value) => {
-          if (key === 'comment') this.seedData.saveCommentAtCell(row, col, value);
+          if (key === 'comment') this.seedData.saveCommentAtRowProp(row, this.seedData.columnNames[col], value);
         },
       },
       Seedsontable.defaultUserSettings,
@@ -24,7 +24,7 @@ export class Seedsontable extends Handsontable.Core {
     this._patch();
     // for remove comment
     this.addHook('afterRemoveCellMeta', (row, col, key, value) => {
-      if (key === 'comment') this.seedData.removeCommentAtCell(row, col);
+      if (key === 'comment') this.seedData.removeCommentAtRowProp(row, this.seedData.columnNames[col]);
     });
   }
 
@@ -70,4 +70,5 @@ Seedsontable.defaultUserSettings = {
   outsideClickDeselects: false,
   trimWhitespace: true,
   comments: true,
+  search: true,
 };
