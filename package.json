@@ -1,6 +1,6 @@
 {
   "name": "seedsontable",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "handsontable for seed data",
   "keywords": [],
   "main": "./es5/index.js",
