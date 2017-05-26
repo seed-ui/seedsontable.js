@@ -5,11 +5,14 @@
   "keywords": [],
   "main": "./es5/index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "handsontable": "^0.26.0",
-    "socket.io-client": "^2.0.0"
+    "socket.io-client": "^2.0.0",
+    "snyk": "^1.30.1"
   },
   "devDependencies": {
     "babel-cli": "^6.10.1",
@@ -68,5 +71,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/seed-ui/seedsontable.js.git"
-  }
+  },
+  "snyk": true
 }
