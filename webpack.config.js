@@ -1,43 +1,32 @@
-require('babel-core/register');
+const webpack = require('webpack');
+const path = require('path');
 
-import webpack from 'webpack';
-import path from 'path';
-
-export default {
+module.exports = {
   devtool: 'source-map',
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.js$/,
-        loader: 'babel',
+        test: /\.ts$/,
+        loader: 'ts-loader',
         exclude: /node_modules/,
-      },
-      {
-        test: /\.json$/,
-        loader: 'json',
       },
     ],
   },
   entry: {
-    seedsontable: './src/index.js',
+    seedsontable: './src/index.ts',
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'dist/web'),
     filename: '[name].js',
-    publicPath: '/dist',
     library: 'seedsontable',
-    libraryTarget: 'var',
+    libraryTarget: 'umd',
+  },
+  resolve: {
+    extensions: [".ts", ".js"],
   },
   plugins: [
-    new webpack.optimize.DedupePlugin(),
-//    new webpack.optimize.UglifyJsPlugin(),
     new webpack.optimize.AggressiveMergingPlugin(),
   ],
-  resolve: {
-    alias: {
-      'eventEmitter/EventEmitter': 'wolfy87-eventemitter/EventEmitter',
-    },
-  },
   externals: [
     {
       handsontable: 'Handsontable',

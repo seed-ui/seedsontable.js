@@ -1,14 +1,8 @@
 **/.sw?
 **/.*.sw?
 node_modules
-bower_components
 npm-debug.log
+package-lock.json
 /coverage
 /doc
-!.babelrc
-!.codeclimate.yml
-!.eslintrc.yml
-!.gitignore
-!.gitmodules
-!.npmignore
-!.travis.yml
+/dist
