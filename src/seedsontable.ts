@@ -1,8 +1,8 @@
-import * as Handsontable from "handsontable";
+import Handsontable, { _Handsontable } from "handsontable";
 import {SeedsonData} from "./seedsondata";
 
-export class Seedsontable extends Handsontable.Core {
-  static defaultUserSettings: Handsontable.Options = {
+export class Seedsontable extends Handsontable {
+  static defaultUserSettings: _Handsontable.DefaultSettings = {
     colHeaders: true,
     rowHeaders: true,
     fixedRowsTop: 3,
@@ -56,9 +56,9 @@ export class Seedsontable extends Handsontable.Core {
     // patch
     this._patch();
     // for remove comment
-    this.addHook('afterRemoveCellMeta', (row: number, col: number, key: string, _: string) => {
+    this.addHook('afterRemoveCellMeta', ((row: number, col: number, key: string, _: string) => {
       if (key === 'comment') this.seedData.removeCommentAtRowProp(row, this.seedData.columnNames[col]);
-    });
+    }) as any);
   }
 
   get seedData() { return this._seedData; }
@@ -69,7 +69,7 @@ export class Seedsontable extends Handsontable.Core {
       removeCellMeta(row, col, key);
       const val = (this.getCellMeta(row, col) as any)[key];
       if (val != null) {
-        (Handsontable.hooks.run as any)(this, 'afterRemoveCellMeta', row, col, key, val);
+        ((Handsontable.hooks) as any).run(this, 'afterRemoveCellMeta', row, col, key, val);
       }
     };
   }
