@@ -1,11 +1,11 @@
 {
   "name": "seedsontable",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "handsontable for seed data",
   "keywords": [],
   "main": "./dist/node/index.js",
   "types": "./dist/node/index.d.ts",
-  "files":[
+  "files": [
     "./dist"
   ],
   "scripts": {
