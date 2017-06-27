@@ -6,7 +6,7 @@
   "main": "./dist/node/index.js",
   "types": "./dist/node/index.d.ts",
   "files": [
-    "./dist"
+    "dist"
   ],
   "scripts": {
     "prepublish": "npm run dist",
