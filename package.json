@@ -3,8 +3,13 @@
   "version": "0.0.4",
   "description": "handsontable for seed data",
   "keywords": [],
-  "main": "./es5/index.js",
+  "main": "./dist/node/index.js",
+  "types": "./dist/node/index.d.ts",
+  "files":[
+    "./dist"
+  ],
   "scripts": {
+    "prepublish": "npm run dist",
     "test": "echo no test",
     "dist": "npm run dist:node && npm run dist:web",
     "dist:node": "tsc",
