@@ -4,8 +4,6 @@
 [![npm license](https://img.shields.io/npm/l/seedsontable.svg)](https://www.npmjs.com/package/seedsontable)
 [![npm download total](https://img.shields.io/npm/dt/seedsontable.svg)](https://www.npmjs.com/package/seedsontable)
 [![npm download by month](https://img.shields.io/npm/dm/seedsontable.svg)](https://www.npmjs.com/package/seedsontable)
-[![Bower](https://img.shields.io/bower/v/seedsontable.svg)](https://github.com/seed-ui/seedsontable.js)
-[![Bower](https://img.shields.io/bower/l/seedsontable.svg)](https://github.com/seed-ui/seedsontable.js)
 
 [![Dependency Status](https://david-dm.org/seed-ui/seedsontable.js.svg)](https://david-dm.org/seed-ui/seedsontable.js)
 [![devDependency Status](https://david-dm.org/seed-ui/seedsontable.js/dev-status.svg)](https://david-dm.org/seed-ui/seedsontable.js#info=devDependencies)
@@ -21,11 +19,6 @@
 npm:
 ```
 npm install seedsontable
-```
-
-bower:
-```
-bower install seedsontable
 ```
 
 ## Usage
@@ -50,4 +43,4 @@ var SeedsonData = seedsontable.SeedsonData;
 
 ## License
 
-This is released under [MIT License](http://narazaka.net/license/MIT?2016).
+This is released under [MIT License](http://narazaka.net/license/MIT?2017).
