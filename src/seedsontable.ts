@@ -1,8 +1,8 @@
-import Handsontable, { _Handsontable } from "handsontable";
+import * as Handsontable from "handsontable";
 import {SeedsonData} from "./seedsondata";
 
-export class Seedsontable extends Handsontable {
-  static defaultUserSettings: _Handsontable.DefaultSettings = {
+export class Seedsontable extends Handsontable.Core {
+  static defaultUserSettings = {
     colHeaders: true,
     rowHeaders: true,
     fixedRowsTop: 3,
@@ -30,7 +30,7 @@ export class Seedsontable extends Handsontable {
     trimWhitespace: true,
     comments: true,
     search: true,
-  }
+  } as Handsontable.ColumnProperties;
 
   private readonly _seedData: SeedsonData;
 

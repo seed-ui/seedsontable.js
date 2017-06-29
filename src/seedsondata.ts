@@ -1,17 +1,17 @@
-import { _Handsontable } from "handsontable";
+import * as Handsontable from "handsontable";
 
 export type Validator = (value: any, callback: (condition: boolean) => void) => void;
 
 export interface _ColumnProperties extends CellProperties {
   data?: string | number;
   title?: string;
-  editor?: string | typeof _Handsontable.editors.Base;
+  editor?: string | Handsontable.EditorConstructor;
   selectOptions?: any[];
   width?: number;
 }
 
 export interface CellProperties {
-  renderer?: _Handsontable.renderers.Base;
+  renderer?: Handsontable.CellRenderer;
   type?: string;
   readOnly?: boolean;
   language?: string;

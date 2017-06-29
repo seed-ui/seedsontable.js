@@ -16,7 +16,8 @@
     "dist:web": "webpack"
   },
   "dependencies": {
-    "handsontable": "^0.32.0"
+    "@types/handsontable": "^0.31.1",
+    "handsontable": "< 0.32.0"
   },
   "devDependencies": {
     "ts-loader": "^2.2.0",
