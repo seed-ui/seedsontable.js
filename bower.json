@@ -1,0 +1,31 @@
+{
+  "name": "seedsontable",
+  "description": "handsontable for seed data",
+  "main": [
+    "./dist/web/seedsontable.js",
+    "./dist/web/seedsontable.js.map"
+  ],
+  "authors": [
+    "Narazaka"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.sw?",
+    "**/.*.sw?",
+    "bower_components",
+    "node_modules",
+    "npm-debug.log",
+    "/coverage",
+    "/doc",
+    "/.*",
+    "appveyor.yml",
+    "gulpfile.babel.js",
+    "karma.conf.js",
+    "webpack.config.js",
+    "esdoc.json"
+  ],
+  "dependencies": {
+    "handsontable": "< 0.32.0"
+  }
+}
