@@ -52,11 +52,8 @@ export class SeedsonData {
   constructor(columns: ColumnProperties[], sourceData: DataRow[] = [], comments: DataComments = {}) {
     this._columns = columns;
     this._columnNames = SeedsonData.namesFromColumns(columns);
-    this._columnLabels = this.columns.map((column) => column.dataLabel || "");
-    this._data = [
-      this.columnNames.reduce((row, value) => { row[value] = value; return row; }, {} as DataRow),
-      this.columnNames.reduce((row, value, index) => { row[value] = this.columnLabels[index]; return row; }, {} as DataRow),
-    ].concat(sourceData.map((row) => Object.assign({}, row)));
+    this._columnLabels = this.columns.map((column) => `${column.dataLabel || ""}<br>[${column.data}]`);
+    this._data = sourceData.map((row) => Object.assign({}, row));
     this._comments = comments;
   }
 
@@ -111,15 +108,14 @@ export class SeedsonData {
   contentData(options: ContentDataOptions = {}) {
     const {denyNoSeed} = options;
     let columns = this.columns;
-    let contentData = this.data.slice(3);
     if (denyNoSeed) {
       columns = columns.filter((column) => !column.noSeed);
     }
     if (columns.length === this.columns.length) {
-      return contentData.map((row) => Object.assign({}, row));
+      return this.data.filter(row => row.id).map((row) => Object.assign({}, row));
     } else {
       const columnNames = SeedsonData.namesFromColumns(columns);
-      return contentData.map((row) =>
+      return this.data.filter(row => row.id).map((row) =>
         columnNames.reduce((newrow, name) => {
           newrow[name] = row[name];
           return newrow;

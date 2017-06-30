@@ -3,9 +3,7 @@ import {SeedsonData} from "./seedsondata";
 
 export class Seedsontable extends Handsontable.Core {
   static defaultUserSettings = {
-    colHeaders: true,
     rowHeaders: true,
-    fixedRowsTop: 3,
     manualColumnResize: true,
     manualRowResize: true,
     contextMenu: [
@@ -37,13 +35,10 @@ export class Seedsontable extends Handsontable.Core {
   constructor(container: Element, seedData: SeedsonData, userSettings = {}) {
     const useUserSettings = Object.assign(
       {
+        colHeaders: seedData.columnLabels,
         columns: seedData.columns,
         data: seedData.data,
-        cell: [0, 1].map((row) =>
-          seedData.columns.map((_, col) =>
-            ({row, col, type: 'text', readOnly: true, placeholder: false, allowInsertRow: false, allowRemoveRow: false})
-          )
-        ).reduce((all, part) => all.concat(part), []).concat(seedData.allComments as any),
+        cell: seedData.allComments,
         afterSetCellMeta: (row: number, col: number, key: string, value: string) => {
           if (key === 'comment') this.seedData.saveCommentAtRowProp(row, this.seedData.columnNames[col], value);
         },
