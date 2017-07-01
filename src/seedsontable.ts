@@ -28,11 +28,11 @@ export class Seedsontable extends Handsontable.Core {
     trimWhitespace: true,
     comments: true,
     search: true,
-  } as Handsontable.ColumnProperties;
+  } as Handsontable.Options;
 
   private readonly _seedData: SeedsonData;
 
-  constructor(container: Element, seedData: SeedsonData, userSettings = {}) {
+  constructor(container: Element, seedData: SeedsonData, userSettings: Handsontable.Options = {}) {
     const useUserSettings = Object.assign(
       {
         colHeaders: seedData.columnLabels,
