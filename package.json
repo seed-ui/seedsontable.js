@@ -1,6 +1,6 @@
 {
   "name": "seedsontable",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "handsontable for seed data",
   "keywords": [],
   "main": "./dist/node/index.js",
