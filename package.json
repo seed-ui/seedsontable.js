@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@types/handsontable": "^0.31.1",
-    "handsontable": "< 0.32.0"
+    "handsontable": "8.2.0"
   },
   "devDependencies": {
     "ts-loader": "^2.2.0",
